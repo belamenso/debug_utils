@@ -5,10 +5,10 @@ import statistics
 
 stdout, sys.stdout = sys.stdout, None
 import pygame
+pygame.mixer.init()
 sys.stdout = stdout
 
 def ab(name: str) -> None:  # audio breakpoint
-    pygame.mixer.init()
     pygame.mixer.Sound('sounds/{}.ogg'.format(name)).play()
     while pygame.mixer.get_busy():
         time.sleep(0.001)
@@ -33,7 +33,7 @@ def benchmark(f, rounds=100):
         if (i + 1) % 10 == 0:
             print('{} {:3.2f} {:3.2f}'. format(i + 1, mean, statistics.stdev(times, mean)))
 
-def print_list(xs, indices, str_labels):
+def ppl(xs, indices, str_labels):  # pretty print list
 
     labels = str_labels.split(' ')
     assert len(indices) == len(labels)
@@ -93,7 +93,5 @@ def print_list(xs, indices, str_labels):
     print(top_line)
     print(middle_line_color)
     print(bottom_line)
+    sys.stdout.flush()
 
-
-if __name__ == '__main__':
-    print_list([2131,2,3,5,4300325,1,2,3,5,2,2], [0,2,2,2,5], 'a b c beg end')
