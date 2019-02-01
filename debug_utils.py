@@ -8,18 +8,28 @@ import pygame
 pygame.mixer.init()
 sys.stdout = stdout
 
+__run = True
+
+def enable(should_run: bool) -> None:
+    global __run
+    __run = should_run
+
 def ab(name: str) -> None:  # audio breakpoint
+    if not __run: return
     pygame.mixer.Sound('sounds/{}.ogg'.format(name)).play()
     while pygame.mixer.get_busy():
         time.sleep(0.001)
 
 def nab(name: str) -> None:  # non-blocking audio breakpoint
+    if not __run: return
     class NB(Thread):
         def run(self):
             ab(name)
     NB().start()
 
 def benchmark(f, rounds=100):
+    if not __run: return
+
     times = []
     stdout = sys.stdout
     for i in range(rounds):
@@ -34,6 +44,7 @@ def benchmark(f, rounds=100):
             print('{} {:3.2f} {:3.2f}'. format(i + 1, mean, statistics.stdev(times, mean)))
 
 def ppl(xs, indices, str_labels):  # pretty print list
+    if not __run: return
 
     labels = str_labels.split(' ')
     assert len(indices) == len(labels)
@@ -95,3 +106,10 @@ def ppl(xs, indices, str_labels):  # pretty print list
     print(bottom_line)
     sys.stdout.flush()
 
+def header(text, n=50):
+    if not __run: return
+
+    print('\n' + ('=' * n))
+    print(str(text).center(n))
+    print(('=' * n) + '\n')
+    sys.stdout.flush()
