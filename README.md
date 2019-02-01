@@ -1,4 +1,4 @@
-# Python Debug Utils
+# Python Debugging Utils
 
 ## Audio Debugging
 
@@ -47,7 +47,7 @@ Since they rely on unix-style color coding, they don't work on Windows (unless
 |`enale(True)`| All commands activated again.|
 |`ab('bird')`| Blocking audible breakpoint `bird.ogg`.|
 |`nab('bird')`| Non-blocking audible breakpoint `bird.ogg`.|
-|`ppl(xs, (i, j, k), 'i j k')`| Pretty print list xs with marked indices `i`, `j`, `k`.|
+|`ppl(xs, (i, j, k), 'i j k')`| Pretty print list `xs` with marked indices `i`, `j`, `k`.|
 |`header('hello', n=50)`| Print header with `Hello` inside, of with `n`.|
 |`benchmark(f, rounds=100)`| Run `f()` `rounds` times, every 10th print mean time and standard deviation.|
 
