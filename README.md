@@ -40,29 +40,8 @@ Surprisingly not many
 Since they rely on unix-style color coding, they don't work on Windows (unless
  in PyCharm, cygwin and such).
  
-```python3
-from debug_utils import ab, ppl
-
-def binomial_max_search(xs):
-    assert len(xs) != 0
-    l, r = 0, len(xs)  # [l r)
-    while l < r - 1:  # at least 2 elements
-        mid = (l + r - 1) // 2
-        ppl(xs, (l, r, mid), 'l r mid')
-        if xs[mid] < xs[mid + 1]:
-            l = mid + 1
-            ab('click')
-        else:
-            r = mid + 1
-            ab('pop')
-    ab('bird')
-    return xs[l]  # only one element left
-
-if __name__ == '__main__':
-    a = [1,2,3,4,5,10,13,14,16,15,11,10,8,6,5,4,3,2,1,0]
-    binomial_max_search(a)
-```
-Above code produces sound and this output:
+## Example
+Code in `example.py` produces sound and this output:
 
 ![](./example.png)
 
