@@ -108,3 +108,5 @@ Only some of them sound good (like `bird`, `click`, `pop`, `zip`).
 * non-blocking image streams
 * better image stream color specification (left-right)
 * consequent image stream presentations update a single file, do not create many temporary files
+* image stream documentation
+* remove obsolete call to `toimage`
