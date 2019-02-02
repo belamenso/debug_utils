@@ -71,8 +71,8 @@ Code in `example.py` produces sound and this output:
 ## Commands
 |Command name  | Description |
 |---|---|
-|`enale(False)`| All commands do nothing.|
-|`enale(True)`| All commands activated again.|
+|`enable(False)`| All commands do nothing.|
+|`enable(True)`| All commands activated again.|
 |`ab('bird')`| Blocking audible breakpoint `bird.ogg`.|
 |`nab('bird')`| Non-blocking audible breakpoint `bird.ogg`.|
 |`ppl(xs, (i, j, k), 'i j k')`| Pretty print list `xs` with marked indices `i`, `j`, `k`.|
