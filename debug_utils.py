@@ -2,6 +2,8 @@ from threading import Thread
 import sys
 import time
 import statistics
+import numpy as np
+import scipy.misc as smp
 
 stdout, sys.stdout = sys.stdout, None
 import pygame
@@ -113,3 +115,36 @@ def header(text, n=50):
     print(str(text).center(n))
     print(('=' * n) + '\n')
     sys.stdout.flush()
+
+def image_stream(channels=1):
+    assert channels >= 1
+    data = [None] * channels
+    for i in range(len(data)):
+        data[i] = []
+
+    channel_size = 100
+
+    def percent_to_pixel(p, theme):
+        if theme == 'red':
+            return int(255 * (1 - p)), int(255 * p), 30
+        elif theme == 'strawberry':
+            return int(248 * p), int(12 * p), int(58 * p)
+        elif theme == 'gold' or True:
+            return int(255 * p), int(191 * p), 0
+
+    def feed(*percents):
+        assert len(percents) == channels
+        for i, p in enumerate(percents):
+            data[i].append(p)
+
+    def show(theme='gold'):
+        img_data = np.zeros((channel_size * channels, len(data[0]), 3))
+        for ch in range(channels):
+            for j, p in enumerate(data[ch]):
+                pixel = percent_to_pixel(p, theme)
+                for i in range(ch * channel_size, (ch + 1) * channel_size):
+                    img_data[i, j] = pixel
+        img = smp.toimage(img_data)
+        img.show()
+
+    return feed, show

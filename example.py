@@ -1,4 +1,4 @@
-from debug_utils import ab, ppl, header
+from debug_utils import ab, ppl, header, image_stream
 
 def binomial_max_search(xs):
     assert len(xs) != 0
@@ -19,3 +19,8 @@ if __name__ == '__main__':
     a = [1,2,3,4,5,10,13,14,16,15,11,10,8,6,5,4,3,2,1,0]
     header('Searching for max')
     binomial_max_search(a)
+
+    feed, show = image_stream()
+    for i in range(1000):
+        feed(i / 1000 if i % 3 else 0)
+    show('strawberry')

@@ -105,3 +105,6 @@ Only some of them sound good (like `bird`, `click`, `pop`, `zip`).
 * external analyzer for these logs, allowing you to replay and rewind them
 * visualizations
 * audio breakpoints based on frequencies
+* non-blocking image streams
+* better image stream color specification (left-right)
+* consequent image stream presentations update a single file, do not create many temporary files
