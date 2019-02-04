@@ -110,3 +110,6 @@ Only some of them sound good (like `bird`, `click`, `pop`, `zip`).
 * consequent image stream presentations update a single file, do not create many temporary files
 * image stream documentation
 * remove obsolete call to `toimage`
+* progressive imports, that is only import things when you first need them
+* timing utils
+* colorful printing
