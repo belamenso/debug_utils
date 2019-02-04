@@ -114,3 +114,6 @@ Only some of them sound good (like `bird`, `click`, `pop`, `zip`).
 * timing utils
 * colorful printing
 * add `import Pillow` since without it, the image generation on Windows breaks
+* there should be some global object with the history of interactions, so that even if the debugged script crashes
+    you can inspect this object in REPL and potentially recover data that otherwise need to be recomputed
+* this object should also store history of image feeds, so that you can generate the image post-mortem
