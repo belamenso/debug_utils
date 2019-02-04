@@ -113,3 +113,4 @@ Only some of them sound good (like `bird`, `click`, `pop`, `zip`).
 * progressive imports, that is only import things when you first need them
 * timing utils
 * colorful printing
+* add `import Pillow` since without it, the image generation on Windows breaks
